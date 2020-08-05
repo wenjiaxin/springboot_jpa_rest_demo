@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" media="all"  href="/css/style.css"  th:href="@{/css/gtvg.css}" />
+</head>
+<body>
+
+<!--th:if 条件成立就显示-->
+<h1 th:if="${flag=='yes'}">优就业教育</h1>
+<!--th:unless  条件不成立就显示-->
+<h1 th:unless="${flag=='no'}">你猜</h1>
+<!--switch 选择语句-->
+<div th:switch="${menu}">
+    <p th:case="'admin'">User is an administrator</p>
+    <p th:case="${manager}">User is a manager</p>
+</div>
+
+<!-- 把片段的内容插入到当前位置 -->
+<div th:insert="~{foot :: copy}"></div>
+<div th:replace="~{foot :: copy}"></div>
+</br>
+<!-- 保留自己的主标签，不要片段的主标签 -->
+<div th:include="~{foot :: copy}"></div>
+
+
+</body>
+</html>
